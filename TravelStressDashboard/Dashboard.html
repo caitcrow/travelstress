@@ -1,0 +1,554 @@
+<!doctype html>
+<html>
+
+<head>
+   <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+   <meta charset="utf-8">
+   <meta name="HandheldFriendly" content="True">
+   <meta name="MobileOptimized" content="320">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <meta http-equiv="cleartype" content="on">
+   <link rel="stylesheet" href="StyleDashboard.css">
+   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+   <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <!-- not really needed -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+</head>
+<nav class="navbar navbar-default">
+   <div class="container-fluid">
+      <div class="navbar-header">
+         <a href="https://amadeus.com/en"><img class="logo" src="picture/logo.png"></a>
+      </div>
+      <ul class="nav navbar-nav">
+         <li><a href="Dashboard.html">HOME</a></li>
+         <li><a href="Calendar.html">CALENDAR</a></li>
+         <li><a href="About.html">ABOUT</a></li>   
+      </ul>
+      <form class="navbar-form navbar-left" action="/Dashboard.html">
+         <input type="search" placeholder="Search..." name="search" class="form-control searchbox-input">
+         <div class="btn btn-primary" id="filterbutton1">High Stress Filter</div>
+         <div class="btn btn-primary" id="filterbutton2">Low Stress Filter</div>
+         <button class="btn btn-primary" data-toggle="modal" onClick="window.location.reload()">Reset</button>
+      </form>
+   </div>
+</nav>
+
+<!-- .header -->
+<div id="top" class="image-header"></div>
+<!-- /.header -->
+<body>
+<div class="dashboard" style="text-align:center;">
+   <!-- employee cards -->
+   <div class ="card-deck">
+   <div class ="column">    
+      <div class="card " style="height:150px">
+         <div class = "col-lg-4 ">
+            <img class="headshot" src="picture/adam-headshot.png">
+         </div>
+         <div class = "col-lg-4">
+            <h4><b>Adam</b> Turner</h4>
+            <p><i>Software Engineer</i></p>
+            <!-- popup button -->
+            <p><button class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Profile</button></p>
+         </div>
+         <!-- Stress gauge -->
+         <div class = "col-lg-2">
+            <div class ="gauge">
+            <img class="main_card1" src="picture/smallgauge-4.png" title="Stress Profile">
+         </div>
+         </div>
+      </div>  
+   </div>
+
+
+   <div class="column">
+      <div class="card" style="height:150px">
+         <div class="col-lg-4">
+            <img class="headshot" src="picture/whitney-headshot.png">
+         </div>
+         <div class="col-lg-4">
+            <h4><b>Whitney</b> Kelly</h4>
+            <p><i>Systems Engineer</i></p>
+            <p><button class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Profile</button></p>
+         </div>
+         <div class="col-lg-4">
+            <div class ="gauge">
+               <img class="main_card2" src="picture/smallgauge-3.png" title="Stress Profile">
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="column">
+      <div class="card" style="height:150px">
+         <div class="col-lg-4">
+            <img class="headshot" src="picture/david-headshot.jpg">
+         </div>
+         <div class="col-lg-4">
+            <h4><b>David</b> Bell</h4>
+            <p><i>Project Manager</i></p>
+            <p><button class="btn btn-primary" data-toggle="modal" data-target="#myModal3">Profile</button></p>
+         </div>
+         <!-- Stress gauge -->
+         <div class="lg-col-4">
+               <div class ="gauge">
+            <img class="main_card3" src="picture/smallgauge-2.png" title="Stress Profile">
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+   <!-- second row of cards -->
+
+   <div class="column">
+      <div class="card" style="height:150px">
+         <div class="col-lg-4">
+            <img class="headshot" src="picture/connel-headshot.png">
+         </div>
+         <div class="col-lg-4">
+            <h4><b>Connel</b> Hughes</h4>
+            <p><i>Performance Engineer</i></p>
+            <p><button class="btn btn-primary" data-toggle="modal" data-target="#myModal4">Profile</button></p>
+         </div>
+         <div class="col-lg-4">
+            <div class = "gauge">
+            <img class="main_card3" src="picture/smallgauge-1.png" title="Stress Profile">
+         </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="column">
+      <div class="card" style="height:150px">
+         <div class="col-lg-4">
+            <img class="headshot" src="picture/karen-headshot.png">
+         </div>
+         <div class="col-lg-4">
+            <h4><b>Karen</b> Miller</h4>
+            <p><i>Technical Business Analyst</i></p>
+            <p><button class="btn btn-primary" data-toggle="modal" data-target="#myModal5">Profile</button></p>
+         </div>
+         <div class="col-lg-4">
+            <div class ="gauge">
+            <img class="main_card2" src="picture/smallgauge-3.png" title="Stress Profile">
+         </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="column">
+      <div class="card" style="height:150px">
+         <div class="col-lg-4">
+            <img class="headshot" src="picture/woman-headshot.png">
+         </div>
+         <div class="col-lg-4">
+            <h4><b>Emma</b> Jones</h4>
+            <p><i>Software Engineer</i></p>
+            <p><button class="btn btn-primary" data-toggle="modal" data-target="#myModal6">Profile</button></p>
+         </div>
+         <div class="col-lg-4">
+               <div class ="gauge">
+            <img class="main_card1" src="picture/smallgauge-5.png" title="Stress Profile">
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+   <!-- End of cards -->
+
+   <!-- Popup -->
+   <!-- Map Modal 1-->
+   <div id="myModal1" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title">Employee Profile</h4>
+            </div>
+            <!-- popup content -->
+            <div class="modal-body">
+               <!-- profile picture -->
+               <img class="modal-headshot" src="picture/adam-headshot.png">
+               <!-- contact -->
+               <div class="popcontainers">
+                  <h2><b>Adam</b> Turner</h2>
+                  <p class="title"><i>Software Engineer</i></p>
+                  <p>adam.turner@amadeus.com</p>
+               </div>
+               <!-- gauge -->
+               <img class="modal-gauge" src="picture/largegauge-4.png">
+               <!-- travel preferences -->
+               <div class="card" style="display:inline-block;vertical-align:top;margin-left:150px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Travel</b> Preferences</h4>
+                        <li class='list-group-item'><b>Inconvenient time:</b> 8:00 PM - 8:00 AM</li>
+                        <li class='list-group-item'><b>Flight duration:</b> 5 hours or less </li>
+                        <li class='list-group-item'><b>Stay duration:</b> 6 days or less</li>
+                        <li class='list-group-item'><b>Booking date:</b> 1 week in advance</li>
+                     </span>
+                  </div>
+               </div>
+               <!-- stress profile -->
+               <div class="card" style="display:inline-block;margin-left:20px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Stress</b> Profile</h4>
+                        <p><span class="label label-danger">10 or more flights in the past year</span></p>
+                     </span>
+                  </div>
+               </div>
+               <!-- last flight -->
+               <div class="card" style="margin-top:20px;position:center;">
+                  <div class="containers" style="position:center;">
+                     <span class="flightheader">
+                        <h4><b>Last</b> Flight</h4>
+                     </span>
+                     <img class="tooltip1" src="picture/dashboard_mock2.png" title="Stress Factors">
+                     <img class="tooltip2" src="picture/dashboard_mock3.png" title="Stress Factors">
+                     <img class="tooltip3" src="picture/dashboard_mock4.png" title="Stress Factors">
+                  </div>
+               </div>
+               <!-- end of content-->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- End of Popup -->
+   <!-- Popup 2 -->
+   <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+         <!-- Map Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title">Employee Profile</h4>
+            </div>
+            <!-- popup content -->
+            <div class="modal-body">
+               <!-- profile picture -->
+               <img class="modal-headshot" src="picture/whitney-headshot.png">
+               <!-- contact -->
+               <div class="popcontainers">
+                  <h2><b>Whitney</b> Kelly</h2>
+                  <p class="title"><i>Systems Engineer</i></p>
+                  <p>whitney.kelly@amadeus.com</p>
+               </div>
+               <!-- gauge -->
+               <img class="modal-gauge" src="picture/largegauge-3.png">
+               <!-- travel preferences -->
+               <div class="card" style="display:inline-block;vertical-align:top;margin-left:150px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Travel</b> Preferences</h4>
+                        <li class='list-group-item'><b>Inconvenient time:</b> 8:00 PM - 12:00 AM </li>
+                        <li class='list-group-item'><b>Flight duration:</b> 5 hours or less </li>
+                        <li class='list-group-item'><b>Stay duration:</b> 6 days or less</li>
+                        <li class='list-group-item'><b>Booking date:</b> 3 days in advance</li>
+                     </span>
+                  </div>
+               </div>
+               <!-- stress profile -->
+               <div class="card" style="display:inline-block;margin-left:20px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Stress</b> Profile</h4>
+                        <p><span class="label label-warning">5 - 10 flights in the past year</span></p>
+                     </span>
+                  </div>
+               </div>
+               <!-- last flight -->
+               <div class="card" style="margin-top:20px;position:center;">
+                  <div class="containers" style="position:center;">
+                     <span class="flightheader">
+                        <h4><b>Last</b> Flight</h4>
+                     </span>
+                     <img class="flight" rel="popover" data-html="true" src="picture/dashboard_mock2.png" style="margin-left:80px;">
+                  </div>
+               </div>
+               <!-- end of content-->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end of popup 2 -->
+   <!-- Popup 3 -->
+   <div id="myModal3" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+         <!-- Map Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title">Employee Profile</h4>
+            </div>
+            <!-- popup content -->
+            <div class="modal-body">
+               <!-- profile picture -->
+               <img class="modal-headshot" src="picture/david-headshot.jpg">
+               <!-- contact -->
+               <div class="popcontainers">
+                  <h2><b>David</b> Bell</h2>
+                  <p class="title"><i>Project Manager</i></p>
+                  <p>david.bell@amadeus.com</p>
+               </div>
+               <!-- gauge -->
+               <img class="modal-gauge" src="picture/largegauge-2.png">
+
+               <!-- travel preferences -->
+               <div class="card" style="display:inline-block;vertical-align:top;margin-left:150px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Travel</b> Preferences</h4>
+                        <li class='list-group-item'><b>Inconvenient time:</b> 12:00 AM - 12:00 PM </li>
+                        <li class='list-group-item'><b>Flight duration:</b> 9 hours or less </li>
+                        <li class='list-group-item'><b>Stay duration:</b> 11 days or less</li>
+                        <li class='list-group-item'><b>Booking date:</b> 3 days in advance</li>
+                     </span>
+                  </div>
+               </div>
+               <!-- stress profile -->
+               <div class="card" style="display:inline-block;margin-left:20px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Stress</b> Profile</h4>
+                        <p><span class="label label-success">0 - 4 flights in the past year</span></p>
+                     </span>
+                  </div>
+               </div>
+               <!-- last flight -->
+               <div class="card" style="margin-top:20px;position:center;">
+                  <div class="containers" style="position:center;">
+                     <span class="flightheader">
+                        <h4><b>Last</b> Flight</h4>
+                     </span>
+                     <img class="flight" rel="popover" data-html="true" src="picture/dashboard_mock2.png" style="margin-left:80px;">
+                  </div>
+               </div>
+               <!-- end of content-->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end of popup 3 -->
+   <!-- Popup 4 -->
+   <div id="myModal4" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+         <!-- Map Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title">Employee Profile</h4>
+            </div>
+            <!-- popup content -->
+            <div class="modal-body">
+               <!-- profile picture -->
+               <img class="modal-headshot" src="picture/connel-headshot.png">
+               <!-- contact -->
+               <div class="popcontainers">
+                  <h2><b>Connel</b> Hughes</h2>
+                  <p class="title"><i>Performance Engineer</i></p>
+                  <p>connel.hughes@amadeus.com</p>
+               </div>
+               <!-- gauge -->
+               <img class="modal-gauge" src="picture/largegauge-1.png">
+               <!-- travel preferences -->
+               <div class="card" style="display:inline-block;vertical-align:top;margin-left:150px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Travel</b> Preferences</h4>
+                        <li class='list-group-item'><b>Inconvenient time:</b> 12:00 PM - 4:00 PM </li>
+                        <li class='list-group-item'><b>Flight duration:</b> 5 hours or less </li>
+                        <li class='list-group-item'><b>Stay duration:</b> 20 days or less</li>
+                        <li class='list-group-item'><b>Booking date:</b> 1 week in advance</li>
+                     </span>
+                  </div>
+               </div>
+               <!-- stress profile -->
+               <div class="card" style="display:inline-block;margin-left:20px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Stress</b> Profile</h4>
+                        <p><span class="label label-success">0 - 4 flights in the past year</span></p>
+                     </span>
+                  </div>
+               </div>
+               <!-- last flight -->
+               <div class="card" style="margin-top:20px;position:center;">
+                  <div class="containers" style="position:center;">
+                     <span class="flightheader">
+                        <h4><b>Last</b> Flight</h4>
+                     </span>
+                     <img class="flight" rel="popover" data-html="true" src="picture/dashboard_mock2.png" style="margin-left:80px;">
+                  </div>
+               </div>
+               <!-- end of content-->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end of popup 4 -->
+   <!-- Popup 5 -->
+   <div id="myModal5" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+         <!-- Map Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title">Employee Profile</h4>
+            </div>
+            <!-- popup content -->
+            <div class="modal-body">
+               <!-- profile picture -->
+               <img class="modal-headshot" src="picture/karen-headshot.png">
+               <!-- contact -->
+               <div class="popcontainers">
+                  <h2><b>Karen</b> Miller</h2>
+                  <p class="title"><i>Technical Business Analyst</i></p>
+                  <p>karen.miller@amadeus.com</p>
+               </div>
+               <!-- gauge -->
+               <img class="modal-gauge" src="picture/largegauge-3.png">
+               <!-- travel preferences -->
+               <div class="card" style="display:inline-block;vertical-align:top;margin-left:150px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Travel</b> Preferences</h4>
+                        <li class='list-group-item'><b>Inconvenient time:</b> 12:00 AM - 8:00 AM </li>
+                        <li class='list-group-item'><b>Flight duration:</b> 5 hours or less </li>
+                        <li class='list-group-item'><b>Stay duration:</b> 1 day or less</li>
+                        <li class='list-group-item'><b>Booking date:</b> 1 week in advance</li>
+                     </span>
+                  </div>
+               </div>
+               <!-- stress profile -->
+               <div class="card" style="display:inline-block;margin-left:20px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Stress</b> Profile</h4>
+                        <p><span class="label label-warning">5 - 10 flights in the past year</span></p>
+                     </span>
+                  </div>
+               </div>
+               <!-- last flight -->
+               <div class="card" style="margin-top:20px;position:center;">
+                  <div class="containers" style="position:center;">
+                     <span class="flightheader">
+                        <h4><b>Last</b> Flight</h4>
+                     </span>
+                     <img class="flight" rel="popover" data-html="true" src="picture/dashboard_mock2.png" style="margin-left:80px;">
+                  </div>
+               </div>
+               <!-- end of content-->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end of popup 5 -->
+   <!-- Popup 6 -->
+   <div id="myModal6" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+         <!-- Map Modal content-->
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal">×</button>
+               <h4 class="modal-title">Employee Profile</h4>
+            </div>
+            <!-- popup content -->
+            <div class="modal-body">
+               <!-- profile picture -->
+               <img class="modal-headshot" src="picture/woman-headshot.png">
+               <!-- contact -->
+               <div class="popcontainers">
+                  <h2><b>Emma</b> Jones</h2>
+                  <p class="title"><i>Software Engineer</i></p>
+                  <p>emma.jones@amadeus.com</p>
+               </div>
+               <!-- gauge -->
+               <img class="modal-gauge" src="picture/largegauge-5.png">
+               <!-- travel preferences -->
+               <div class="card" style="display:inline-block;vertical-align:top;margin-left:150px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Travel</b> Preferences</h4>
+                        <li class='list-group-item'><b>Inconvenient time:</b> 12:00 PM - 4:00 PM</li>
+                        <li class='list-group-item'><b>Flight duration:</b> 12 hours or less </li>
+                        <li class='list-group-item'><b>Stay duration:</b> 11 days or less</li>
+                        <li class='list-group-item'><b>Booking date:</b> 3 days in advance</li>
+                     </span>
+                  </div>
+               </div>
+               <!-- stress profile -->
+               <div class="card" style="display:inline-block;margin-left:20px;">
+                  <div class="containers">
+                     <span class="header" style="background-color:#4A4A4A;">
+                        <h4><b>Stress</b> Profile</h4>
+                        <p><span class="label label-danger">10 or more flights in the past year</span></p>
+                     </span>
+                  </div>
+               </div>
+               <!-- last flight -->
+               <div class="card" style="margin-top:20px;position:center;">
+                  <div class="containers" style="position:center;">
+                     <span class="flightheader">
+                        <h4><b>Last</b> Flight</h4>
+                     </span>
+                     <img class="flight" rel="popover" data-html="true" src="picture/dashboard_mock2.png" style="margin-left:80px;">
+                  </div>
+               </div>
+               <!-- end of content-->
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end of popup 6 -->
+   
+   <!-- footer -->
+
+   <!-- /#footer -->
+   <!--Error Popup-->
+   <div id="popup">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closePopup"><span aria-hidden="true">×</span></button>
+   </div>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+   <script src="Dashboard.js"></script>
+
+
+<footer id="footer" style="position:fixed;width:100%;">
+      Copyright © 2018 Amadeus IT Group
+</footer>
+</body>
+</html>
